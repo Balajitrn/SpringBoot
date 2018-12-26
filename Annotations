@@ -1,0 +1,65 @@
+Spring Boot is a tool to develop spring based enterprise applications. And its opinionated (boot with recommendation), offers opinionated run time for spring (opinions can be overridden)
+
+Convention, not configuration
+
+Simple dependency management
+
+Setup a maven project 
+Configure pom.xml to include the parent and dependency tags
+
+@SpringBootApplication is the annotation used in the main class to indicate that it’s a spring boot application
+
+SpringApplication.run(App.class, arg) initiates the bean injection
+BOM - BILL OF MATERIAL in Spring Boot is the list of all Jar's that are required to run the application without issues.
+
+Spring Boot has tomcat server embedded in it and its configuration is available in application configuration (no server configuration exist), this makes spring boot a stand alone
+
+
+Buisness Services in Spring are technically singleton
+@Service marks a class as business Service that serve a controller class
+
+@AutoWired - injects the Bean class into your Bean
+@RequestMapping - maps the request to a resource
+@RestController -  a class a controller that manages the resources and bean injection
+
+JPA(Java Persistence API) is used to do ORM(Object - Relational Mappixng)
+
+@Entity  - denotes a class as entity class
+@ID - denotes a Field as primary Key
+@ManyTOOne - denoates a relation ship table
+
+
+Maven Build To Deploy the Application
+
+We don’t need a servlet containers like tomcat to run the spring boot application just a jar
+
+Embeds app server in executable jars
+
+To get Jar by Maven build in cmd line use this cmd - mvn clean install 
+
+To run the spring boot Use the cmd - java -jar target/(specify the jar obtained in the the above)
+
+Adding a dependency for actuator in the pom.xml enables the spring boot application to be monitored for different metrics.
+
+Actuator Is a build in endpoints for health Metrics.
+Example you can examine the beans list all the beans and its scope
+
+In the example application, we have these Spring Boot annotations:
+	• @Bean - indicates that a method produces a bean to be managed by Spring.
+	• @Service - indicates that an annotated class is a service class.
+	• @Repository - indicates that an annotated class is a repository, which is an abstraction of data access and storage.
+	• @Configuration - indicates that a class is a configuration class that may contain bean definitions.
+	• @Controller - marks the class as web controller, capable of handling the requests.
+	• @RequestMapping - maps HTTP request with a path to a controller method.
+	• @Autowired - marks a constructor, field, or setter method to be autowired by Spring dependency injection.
+	• @SpringBootApplication - enables Spring Boot autoconfiguration and component scanning.
+@Component is a generic stereotype for a Spring managed component. It turns the class into a Spring bean at the auto-scan time. Classes decorated with this annotation are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.@Repository, @Service, and @Controller are specializations of @Component for more specific use cases.
+There are also Hibernate @Entity, @Table, @Id, and @GeneratedValue annotations in the example.
+
+@ResponseBody - tells dispatchservlet to not to look for view to return value but directly retunrn the value to the browser (need definition from web)
+@ComponentScan - searches for components within the package specified , this is called component Scan
+ViewResolver - dispatch servlet uses view resolver to resolve the view path, view resolver is configured in application.properties
+@SessionAttribute - for conversational storage(value persist across multiple request)
+Jasper is the dependency needed to be added for JSP
+
+Dispatcher Servlet is called Front Controller
